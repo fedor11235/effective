@@ -1,8 +1,8 @@
 {
-  "name": "effective",
+  "name": "user-service",
   "version": "0.0.1",
-  "description": "",
-  "author": "",
+  "description": "user service",
+  "author": "Exferd",
   "private": true,
   "license": "UNLICENSED",
   "scripts": {
@@ -25,6 +25,7 @@
     "@nestjs/platform-express": "^10.0.0",
     "@nestjs/swagger": "^7.1.14",
     "@prisma/client": "^5.5.2",
+    "dotenv": "^16.3.1",
     "reflect-metadata": "^0.1.13",
     "rxjs": "^7.8.1",
     "swagger-ui-express": "^5.0.0"
