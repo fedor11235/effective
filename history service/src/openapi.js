@@ -1,4 +1,6 @@
-import createhistory from './swagger-endpoint/create-history.js'
+import createHistoryUser from './swagger-endpoint/create-history-user.js'
+import updateHistoryUser from './swagger-endpoint/update-history-user.js'
+import getHistoryUser from './swagger-endpoint/get-history-user.js'
 
 export default {
   openapi: '3.0.0',
@@ -8,6 +10,8 @@ export default {
     description: 'The History API description',
   },
   paths: {
-    '/': createhistory,
+    '/create': createHistoryUser,
+    '/update': updateHistoryUser,
+    '/get': getHistoryUser,
   },
 }
