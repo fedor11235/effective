@@ -1,4 +1,5 @@
 import { Injectable } from '@nestjs/common';
+import { User } from '@prisma/client';
 import { CreateUserDto } from './dto/create-user.dto';
 import { UpdateUserDto } from './dto/update-user.dto';
 import { PrismaService } from './prisma/prisma.service';
@@ -7,13 +8,16 @@ import { PrismaService } from './prisma/prisma.service';
 export class AppService {
   constructor(private prisma: PrismaService) {}
 
-  createUser(createUserDto: CreateUserDto): any {
-    return this.prisma.user.create({ data: createUserDto });
+  async createUser(createUserDto: CreateUserDto): Promise<User> {
+    return await this.prisma.user.create({ data: createUserDto });
   }
-  updateUser(id: number, updateUserDto: UpdateUserDto): any {
-    return this.prisma.user.update({ where: { id }, data: updateUserDto });
+  async updateUser(id: number, updateUserDto: UpdateUserDto): Promise<User> {
+    return await this.prisma.user.update({
+      where: { id },
+      data: { ...updateUserDto, updatedAt: new Date(Date.now()) },
+    });
   }
-  getListUsers(): any {
-    return this.prisma.user.findMany();
+  async getListUsers(): Promise<User[]> {
+    return await this.prisma.user.findMany();
   }
 }

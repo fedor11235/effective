@@ -1,24 +1,34 @@
 import { Controller, Get, Post, Param, Body } from '@nestjs/common';
 import { AppService } from './app.service';
+import { User } from '@prisma/client';
 import { CreateUserDto } from './dto/create-user.dto';
 import { UpdateUserDto } from './dto/update-user.dto';
+import { ApiCreatedResponse, ApiOkResponse, ApiTags } from '@nestjs/swagger';
+import { UserEntity } from './entities/user.entity';
 
 @Controller('user')
+@ApiTags('user')
 export class AppController {
   constructor(private readonly appService: AppService) {}
 
   @Post('create')
-  createUser(@Body() createUserDto: CreateUserDto): string {
-    return this.appService.createUser(createUserDto);
+  @ApiCreatedResponse({ type: UserEntity })
+  async createUser(@Body() createUserDto: CreateUserDto): Promise<User> {
+    return await this.appService.createUser(createUserDto);
   }
 
   @Post('update/:id')
-  updateUser(@Param('id') id: string, @Body() updateUserDto: UpdateUserDto): string {
-    return this.appService.updateUser(Number(id), updateUserDto);
+  @ApiOkResponse({ type: UserEntity })
+  async updateUser(
+    @Param('id') id: string,
+    @Body() updateUserDto: UpdateUserDto,
+  ): Promise<User> {
+    return await this.appService.updateUser(Number(id), updateUserDto);
   }
 
   @Get('all')
-  getListUsers(): string {
-    return this.appService.getListUsers();
+  @ApiOkResponse({ type: UserEntity, isArray: true })
+  async getListUsers(): Promise<User[]> {
+    return await this.appService.getListUsers();
   }
 }
