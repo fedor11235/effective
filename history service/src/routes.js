@@ -8,8 +8,9 @@ router.post('/create', async (request, response) => {
   response.send(message)
 });
 
-router.post('/update', async (request, response) => {
-  const message = await updateUser(request.body)
+router.post('/update/:id', async (request, response) => {
+  const { id } = req.params
+  const message = await updateUser(id, request.body)
   response.send(message)
 });
 

@@ -6,10 +6,10 @@ export default {
     parameters: [],
     responses: {
       200: {
-        description: 'получение списка истории действий',
+        description: 'getting a list of action history',
       },
       400: {
-        description: 'неправильный запрос',
+        description: 'bad request',
       },
     },
   },
