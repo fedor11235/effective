@@ -5,6 +5,9 @@
 # служебные переменные
 .env
 
+# бд
+prisma/migrations
+
 # Logs
 logs
 *.log
