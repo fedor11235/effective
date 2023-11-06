@@ -1,11 +1,19 @@
-import { userSheme } from '../swagger-shemes/user.js'
+import { userSheme, idSheme } from '../swagger-shemes/user.js'
 
 export default {
   post: {
     tags: [],
     summary: 'обновление записи',
     description: '',
-    parameters: [],
+    parameters: [
+      {
+        name: "id",
+        in: "path",
+        schema: idSheme,
+        required: true,
+        description: "Id of user to be updated",
+      },
+    ],
     requestBody: {
       required: true,
       content: {

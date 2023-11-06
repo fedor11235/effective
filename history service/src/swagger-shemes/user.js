@@ -9,3 +9,7 @@ export const userSheme = {
     }
   }
 }
+
+export const idSheme = {
+  type: "string",
+}

@@ -2,6 +2,8 @@ import { PrismaClient } from '@prisma/client'
 
 const prisma = new PrismaClient()
 
+const port = process.env.PORT_USER
+
 export async function createUser(data) {
   const user = await prisma.history.create({
     data: {

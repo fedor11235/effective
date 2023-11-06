@@ -6,12 +6,13 @@ import 'dotenv/config'
 
 import router from "./routes.js";
 
-const port = process.env.PORT;
+
+const port = process.env.PORT_HISTORY
 
 const app = express()
 
 app.use(cors())
-app.use('/api', swaggerUi.serve, swaggerUi.setup(swaggerDoc));
+app.use('/api', swaggerUi.serve, swaggerUi.setup(swaggerDoc))
 app.use(router);
 
 app.listen(port, () => console.log(`Running on port ${port}`))

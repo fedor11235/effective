@@ -9,7 +9,7 @@ router.post('/create', async (request, response) => {
 });
 
 router.post('/update/:id', async (request, response) => {
-  const { id } = req.params
+  const { id } = request.params
   const message = await updateUser(id, request.body)
   response.send(message)
 });
