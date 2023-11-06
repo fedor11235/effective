@@ -10,4 +10,4 @@ history service стек: JS, ExpressJS, PostgreSQL, Prisma, Swagger
 
 свегер сделал для удобства тестирования
 
-
+Оба свегера работае на маршруте /api
