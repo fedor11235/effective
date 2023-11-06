@@ -1,4 +1,4 @@
-import { Controller, Get, Post, Param, Body } from '@nestjs/common';
+import { Controller, Get, Post, Put, Param, Body } from '@nestjs/common';
 import { AppService } from './app.service';
 import { User } from '@prisma/client';
 import { CreateUserDto } from './dto/create-user.dto';
@@ -17,7 +17,7 @@ export class AppController {
     return await this.appService.createUser(createUserDto);
   }
 
-  @Post('update/:id')
+  @Put('update/:id')
   @ApiOkResponse({ type: UserEntity })
   async updateUser(
     @Param('id') id: string,

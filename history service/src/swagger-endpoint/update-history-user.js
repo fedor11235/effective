@@ -1,7 +1,7 @@
 import { userSheme, idSheme } from '../swagger-shemes/user.js'
 
 export default {
-  post: {
+  put: {
     tags: [],
     summary: 'обновление записи',
     description: '',
@@ -28,7 +28,7 @@ export default {
       },
       400: {
         description: 'bad request',
-      },
-    },
-  },
-};
+      }
+    }
+  }
+}

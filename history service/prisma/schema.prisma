@@ -9,7 +9,8 @@ datasource db {
 
 model History  {
   id          Int      @id @default(autoincrement())
-  name        String   @unique
+  id_user     Int
+  name        String
   surname     String
   action      String
   createdAt   DateTime @default(now())

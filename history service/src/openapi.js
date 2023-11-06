@@ -12,7 +12,7 @@ export default {
   },
   paths: {
     '/create': createHistoryUser,
-    '/update': updateHistoryUser,
+    '/update/{id}': updateHistoryUser,
     '/get': getHistoryUser,
   },
   components: {
