@@ -1,5 +1,6 @@
 # Описание
-Два сервиса
+В проекте два сервиса
+
 user service - сохраняет, реадактирует, отдает пользоваетелй
 
 user service стек: TS, NestJS, PostgreSQL, Prisma, Swagger
